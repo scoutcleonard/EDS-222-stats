@@ -12,7 +12,7 @@ suppressMessages(library(ggridges))
 suppressMessages(library(gridExtra))
 suppressMessages(library(infer))
 suppressMessages(library(janitor))
-suppressMessages(library(knitr))
+#suppressMessages(library(knitr))
 suppressMessages(library(kableExtra))
 suppressMessages(library(maps))
 suppressMessages(library(openintro))
@@ -74,15 +74,15 @@ if (knitr::is_html_output()) {
 
 ggplot2::update_geom_defaults("point", list(color = openintro::IMSCOL["blue","full"],
                                             fill = openintro::IMSCOL["blue","full"]))
-ggplot2::update_geom_defaults("bar", list(fill = openintro::IMSCOL["blue","full"], 
+ggplot2::update_geom_defaults("bar", list(fill = openintro::IMSCOL["blue","full"],
                                           color = "#FFFFFF"))
-ggplot2::update_geom_defaults("col", list(fill = openintro::IMSCOL["blue","full"], 
+ggplot2::update_geom_defaults("col", list(fill = openintro::IMSCOL["blue","full"],
                                           color = "#FFFFFF"))
 ggplot2::update_geom_defaults("boxplot", list(color = openintro::IMSCOL["blue","full"]))
 ggplot2::update_geom_defaults("density", list(color = openintro::IMSCOL["blue","full"]))
 ggplot2::update_geom_defaults("line", list(color = openintro::IMSCOL["gray", "full"]))
 ggplot2::update_geom_defaults("smooth", list(color = openintro::IMSCOL["gray", "full"]))
-ggplot2::update_geom_defaults("dotplot", list(color = openintro::IMSCOL["blue","full"], 
+ggplot2::update_geom_defaults("dotplot", list(color = openintro::IMSCOL["blue","full"],
                                               fill = openintro::IMSCOL["blue","full"]))
 
 # function: caption helper -----------------------------------------------------
@@ -104,7 +104,7 @@ make_terms_table <- function(x, n_cols = 3){
   x_updated <- c(x, rep("", (desired_length - length(x))))
   matrix(x_updated, nrow = n_rows) %>%
     kbl(booktabs = TRUE, linesep = "") %>%
-    kable_styling(bootstrap_options = c("striped", "condensed"), 
+    kable_styling(bootstrap_options = c("striped", "condensed"),
                   latex_options = "striped",
                   full_width = TRUE)
 }
@@ -112,32 +112,32 @@ make_terms_table <- function(x, n_cols = 3){
 # for foundation chapters ------------------------------------------------------
 
 inference_method_summary_table <- tribble(
-  ~question, 
-  ~randomization, 
-  ~bootstrapping, 
+  ~question,
+  ~randomization,
+  ~bootstrapping,
   ~mathematical,
-  "What does it do?", 
-  "Shuffles the explanatory variable to mimic the natural variability  found in a randomized experiment", 
-  "Resamples (with replacement) from the observed data to mimic the sampling variability found by collecting data from a population", 
+  "What does it do?",
+  "Shuffles the explanatory variable to mimic the natural variability  found in a randomized experiment",
+  "Resamples (with replacement) from the observed data to mimic the sampling variability found by collecting data from a population",
   "Uses theory (primarily the Central Limit Theorem) to describe the hypothetical variability resulting from either repeated randomized experiments or random samples",
-  "What is the random process described?", 
-  "Randomized experiment", 
-  "Random sampling from a population", 
+  "What is the random process described?",
+  "Randomized experiment",
+  "Random sampling from a population",
   "Randomized experiment or random sampling",
-  "What other random processes can be approximated?", 
-  "Can also be used to describe random sampling in an observational model", 
-  "Can also be used to describe random allocation in an experiment", 
+  "What other random processes can be approximated?",
+  "Can also be used to describe random sampling in an observational model",
+  "Can also be used to describe random allocation in an experiment",
   "Randomized experiment or random sampling",
-  "What is it best for?", 
-  "Hypothesis testing (can also be used for confidence intervals, but not covered in this text).", 
-  "Confidence intervals (can also be used for bootstrap hypothesis testing for one proportion as well).", 
+  "What is it best for?",
+  "Hypothesis testing (can also be used for confidence intervals, but not covered in this text).",
+  "Confidence intervals (can also be used for bootstrap hypothesis testing for one proportion as well).",
   "Quick analyses through, for example, calculating a Z score.",
-  "What physical object represents the simulation process?", 
-  "Shuffling cards", 
-  "Pulling marbles from a bag with replacement", 
+  "What physical object represents the simulation process?",
+  "Shuffling cards",
+  "Pulling marbles from a bag with replacement",
   "Not applicable",
-  "What are the technical conditions?", 
-  "Independence", 
-  "Independence, large n", 
+  "What are the technical conditions?",
+  "Independence",
+  "Independence, large n",
   "Independence, large n"
 )
