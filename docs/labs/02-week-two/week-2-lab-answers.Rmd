@@ -50,6 +50,8 @@ suppressMessages({
     "openintro"
   )
 })
+
+
 ```
 
 4. Load all the packages you need, plus the `_common.R` source file.^[Note: If you get a `namespace load` error for `tidyverse`, you want to remove the problem package, reinstall it, and then load `tidyverse` again.]
@@ -61,12 +63,14 @@ library(tidyverse)
 library(readr)
 library(gt)
 library(openintro)
+library(here)
 
 # Where is the root directory where all your labs live? If you want to set up as an .RProj, go for it. 
-rootdir <- ("~/Dropbox/Teaching/UCSB/EDS_222/EDS222_data/")
+rootdir <- here()
 
 # This runs the script _common.R, which loads all the packages we'll need for today and does some extra stuff we won't really use, at least for now.
-source(file.path(rootdir,"labs","_common.R"))
+
+source(file.path(here("labs","_common.R")))
 
 # For labs, we want to see all our code
 knitr::opts_chunk$set(echo = TRUE)
